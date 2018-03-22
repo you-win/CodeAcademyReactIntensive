@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TitleBar from ".components/TitleBar/TitleBar";
+import SearchBar from ".components/SearchBar/SearchBar";
+import ResultsColumn from ".components/ResultsColumn/ResultsColumn";
+import PlaylistColumn from ".components/PlaylistColumn/PlaylistColumn";
+
 
 class App extends Component {
   render() {
