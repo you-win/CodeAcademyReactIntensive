@@ -25,9 +25,11 @@ class App extends Component {
 
   addTrack(track){
     let tracks = this.state.playlistTracks;
-    tracks.push(track);
+    if(!tracks.includes(track)){
+      tracks.push(track);
 
-    this.setState({playlistTracks: tracks});
+      this.setState({playlistTracks: tracks});
+    }
   }
 
   removeTrack(track){
@@ -44,7 +46,8 @@ class App extends Component {
   }
 
   savePlaylist(){
-    SpotifyUtil.savePlaylist();
+    let trackUris = this.state.playlistTracks.map(item => item.uri)
+    SpotifyUtil.savePlaylist(this.state.playlistName, trackUris);
     this.setState({
       playlistName: "New Playlist",
       playlistTracks: []
